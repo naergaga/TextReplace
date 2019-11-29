@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TextReplace.MainPage">
+
+    <StackLayout Orientation="Vertical">
+        <StackLayout>
+            <Button HorizontalOptions="Start" Text="选择文本文件" Clicked="SelectFileClick"></Button>
+        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center">原字符串</Label>
+            <Entry Grid.Row="0" Grid.Column="1"></Entry>
+            <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center">新字符串</Label>
+            <Entry Grid.Row="1" Grid.Column="1"></Entry>
+        </Grid>
+        <StackLayout>
+            <Button HorizontalOptions="Start" Text="替换" Clicked="ReplaceClick"></Button>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
