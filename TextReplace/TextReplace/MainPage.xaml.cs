@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextReplace.Services;
 using Xamarin.Forms;
 
 namespace TextReplace
@@ -29,7 +30,10 @@ namespace TextReplace
 
         public void ReplaceClick(object sender, EventArgs e)
         {
-            
+            var oldStr = EntryOldStr.Text;
+            var newStr = EntryNewStr.Text;
+            var service = new TextReplaceService();
+            service.Replace(Model.Path, oldStr, newStr);
         }
     }
 }

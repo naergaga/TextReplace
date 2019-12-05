@@ -20,9 +20,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center">原字符串</Label>
-            <Entry Grid.Row="0" Grid.Column="1"></Entry>
+            <Entry x:Name="EntryOldStr" Grid.Row="0" Grid.Column="1"></Entry>
             <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center">新字符串</Label>
-            <Entry Grid.Row="1" Grid.Column="1"></Entry>
+            <Entry x:Name="EntryNewStr" Grid.Row="1" Grid.Column="1"></Entry>
         </Grid>
         <StackLayout>
             <Button HorizontalOptions="Start" Text="替换" Clicked="ReplaceClick"></Button>

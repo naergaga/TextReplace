@@ -14,13 +14,14 @@ namespace TextReplace.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private MainPageModel model = new MainPageModel();
+        const int REQUEST_TEXT_GET = 1;
 
         private void SelectFile()
         {
             var intent = new Intent(Intent.ActionGetContent);
             intent.SetType("text/plain");
             intent.AddCategory(Intent.CategoryOpenable);
-            StartActivity(intent);
+            StartActivityForResult(intent, REQUEST_TEXT_GET);
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -42,6 +43,19 @@ namespace TextReplace.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (resultCode == Result.Ok)
+            {
+                switch (requestCode)
+                {
+                    case REQUEST_TEXT_GET:
+                        model.Path = PathUtil.GetActualPathFromFile(this, data.Data);
+                        break;
+                }
+            }
         }
     }
 }

@@ -10,5 +10,6 @@ namespace TextReplace
     public class MainPageModel
     {
         public SelectFile SelectFile { get; set; }
+        public string Path { get; set; }
     }
 }

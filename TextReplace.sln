@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextReplace.Android", "TextReplace\TextReplace.Android\TextReplace.Android.csproj", "{DD5931D0-6753-4AB4-B0D7-D07A430E95AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextReplace", "TextReplace\TextReplace\TextReplace.csproj", "{485FB2B4-9D36-4C71-9864-0CC97F0240DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextReplace", "TextReplace\TextReplace\TextReplace.csproj", "{485FB2B4-9D36-4C71-9864-0CC97F0240DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextReplaceTests", "TextReplace\TextReplaceTests\TextReplaceTests.csproj", "{FCA5E06E-CF3C-42AA-87AE-692C6CC073B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{485FB2B4-9D36-4C71-9864-0CC97F0240DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{485FB2B4-9D36-4C71-9864-0CC97F0240DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{485FB2B4-9D36-4C71-9864-0CC97F0240DB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FCA5E06E-CF3C-42AA-87AE-692C6CC073B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA5E06E-CF3C-42AA-87AE-692C6CC073B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA5E06E-CF3C-42AA-87AE-692C6CC073B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA5E06E-CF3C-42AA-87AE-692C6CC073B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
