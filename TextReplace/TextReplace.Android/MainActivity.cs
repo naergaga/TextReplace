@@ -39,7 +39,12 @@ namespace TextReplace.Droid
             var page = App.Current.MainPage as MainPage;
             page.Model = model;
             model.SelectFile = SelectFile;
+        }
+
+        protected override void OnStart()
+        {
             CheckPermission();
+            base.OnStart();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
