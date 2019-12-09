@@ -43,6 +43,10 @@ namespace TextReplace.Services
                     stream.Position = 0;
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                     reader = new StreamReader(stream, Encoding.GetEncoding("GBK"));
+                }else
+                {
+                    stream.Position = 0;
+                    reader = new StreamReader(stream);
                 }
             }
             var writer = new StreamWriter(outPath, false, reader.CurrentEncoding);

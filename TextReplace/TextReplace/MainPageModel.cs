@@ -5,6 +5,7 @@ using System.Text;
 namespace TextReplace
 {
     public delegate void SelectFile();
+    public delegate void CheckPermission();
 
 
     public class MainPageModel

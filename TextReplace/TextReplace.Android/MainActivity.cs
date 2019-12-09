@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Content;
+using Android;
 
 namespace TextReplace.Droid
 {
@@ -15,6 +16,7 @@ namespace TextReplace.Droid
     {
         private MainPageModel model = new MainPageModel();
         const int REQUEST_TEXT_GET = 1;
+        const int REQUEST_EXTERNAL_STORAGE = 2;
 
         private void SelectFile()
         {
@@ -37,12 +39,32 @@ namespace TextReplace.Droid
             var page = App.Current.MainPage as MainPage;
             page.Model = model;
             model.SelectFile = SelectFile;
+            CheckPermission();
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public void CheckPermission()
+        {
+            //检查权限（NEED_PERMISSION）是否被授权 PackageManager.PERMISSION_GRANTED表示同意授权
+            if (CheckSelfPermission(Manifest.Permission.WriteExternalStorage) != Permission.Granted || CheckSelfPermission(Manifest.Permission.ReadExternalStorage) != Permission.Granted)
+            {
+                //用户已经拒绝过一次，再次弹出权限申请对话框需要给用户一个解释
+                if (ShouldShowRequestPermissionRationale(Manifest.Permission.WriteExternalStorage) || ShouldShowRequestPermissionRationale(Manifest.Permission.ReadExternalStorage))
+                {
+                    Toast.MakeText(this, "请开通相关权限，否则无法正常使用本应用！", ToastLength.Short).Show();
+                }
+                //申请权限
+                this.RequestPermissions(new string[] { Manifest.Permission.WriteExternalStorage, Manifest.Permission.ReadExternalStorage },
+                REQUEST_EXTERNAL_STORAGE
+                );
+
+            }
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
